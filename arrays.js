@@ -43,7 +43,9 @@
     
 // // // // console.log("Key(3) found at: " + binarySearchRotated(v1, 4));
 // // // // console.log("Key(6) found at: " + binarySearchRotated(v1, 3))
+// ---------------------------------------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------------------------------------
 // // // //Given three integer arrays sorted in ascending order, return the smallest number that is common in all three arrays.
 
 // // // let findLeastCommonNumber = function(a,b,c) {
@@ -78,7 +80,9 @@
 // // // let v2 = [0, 4, 5, 6, 7, 8, 50];
 // // // let v3 = [1, 4, 6, 10, 14];
 // // // console.log("Least Common Number: " + findLeastCommonNumber(v1, v2, v3));
+// ---------------------------------------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------------------------------------
 // // // Given an array of integers, rotate the array by 'N' elements.
 
 // // let rotateArray = function(arr, n) {
@@ -113,7 +117,9 @@
 
 // // console.log("Array After Rotation");
 // // console.log(arr)
+// ---------------------------------------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------------------------------------
 // // Given a sorted array of integers, return the low and high index of the given key.
 
 // let findLowIndex = function(arr,key) {
@@ -175,6 +181,38 @@
 //     key = 6;
 //     console.log("Low Index of " + key + ": " + (findLowIndex(array, key)));
 //     console.log("High Index of " + key + ": " + (findHighIndex(array, key)));
+// ---------------------------------------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------------------------------------
 //     Move all zeros to the left of an array while maintaining its order.
 
+let moveZerosToLeft = function(A) {
+    if (A.length < 1) {
+        return;
+    }
+
+    let lengthA = A.length;
+    let writeIndex = lengthA - 1;
+    let readIndex = lengthA - 1;
+
+    while (readIndex >= 0) {
+        if (A[readIndex] != 0) {
+            A[writeIndex] = A[readIndex];
+            writeIndex--;
+        }
+
+        readIndex--;
+    }
+
+    while(writeIndex >= 0) {
+        A[writeIndex] = 0;
+        writeIndex--;
+    }
+};
+
+let v = [1, 10, 20, 0, 59, 63, 0, 88, 25, 0, 15, 0, 0];
+    console.log("Original Array: [" + v + "]");
+
+    moveZerosToLeft(v);
+
+    console.log("After Moving Zeros: [" + v+ "]");
